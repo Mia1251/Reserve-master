@@ -1,0 +1,229 @@
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/custom.css">
+<title>Reserve</title>
+</head>
+
+<body class="reserve-body-bg">
+	<nav class="navbar navbar-light " style="background-color: #b2a6f32d;">
+		<div class="ml-auto">
+			<form th:action="@{/admin/home}" method="get"
+				class="form-inline mb-0 ">
+				<button type="submit" class="btn btn-success text-center">Tillbaka</button>
+			</form>
+		</div>
+	</nav>
+	<div class="container-fluid ">
+		<div class="row">
+			<div
+				class="col-xs-12 col-sm-10 offset-sm-1 p-sm-5 reserve-nav-bg reserve-con-mg ">
+				<div class="panel-body text-center ">
+
+					<form autocomplete="off" action="#"
+						th:action="@{/admin/creat_member}" th:object="${member}"
+						method="post" class="form-horizontal text-center" role="form">
+						<h2 class="text-center text-black ">Fyll i formuläret nedan</h2>
+
+						<div class="form-group">
+							<div class="col-md-12 ">
+								<label
+									class="validation-message mb-3 text-black font-weight-bold">
+								</label> <input type="text" th:field="*{title}" class="form-control"
+									id="inputTitle" placeholder="title" value="Manager" required>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-md-12 ">
+								<label th:if="${#fields.hasErrors('firstName')}"
+									th:errors="*{firstName}"
+									class="validation-message mb-3 text-black font-weight-bold">förnamn</label> <input type="text" th:field="*{firstName}"
+									class="form-control" id="inputFirstName"
+									placeholder="First name" value="Yamen" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-12 ">
+								<label th:if="${#fields.hasErrors('lastName')}"
+									th:errors="*{lastName}"
+									class="validation-message mb-3 text-black font-weight-bold">Efternamn</label> <input type="text" th:field="*{lastName}"
+									class="form-control" id="inputLastName" placeholder="Last name"
+									value="Ayoubi" required>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-md-12 ">
+								<div class="form-group">
+									<label th:if="${#fields.hasErrors('email')}"
+										th:errors="*{email}"
+										class="validation-message mb-3 text-black font-weight-bold">E-postadress</label> <input type="email" th:field="*{email}"
+										class="form-control" id="inputEmail"
+										placeholder="name@example.com" required>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-12 ">
+								<div class="form-group">
+									<label th:if="${#fields.hasErrors('mobilePhone')}"
+										th:errors="*{mobilePhone}"
+										class="validation-message mb-3 text-black font-weight-bold">Telefonnummer</label> <input type="text" th:field="*{mobilePhone}"
+										class="form-control" id="inputPhone" placeholder="xxx-xxxxxxx"
+										required>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-12 ">
+								<div class="form-group">
+									<label th:if="${#fields.hasErrors('address')}"
+										th:errors="*{address}"
+										class="validation-message mb-3 text-black font-weight-bold">Adress</label>
+									<input type="text" th:field="*{address}" class="form-control"
+										id="inputAddress" placeholder="1234 Main St" required>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-12 ">
+								<div class="form-group">
+
+									<select
+										class="mdb-select md-form colorful-select dropdown-danger"
+										id="scripts" name="scripts" multiple>
+										<option value="" disabled selected>Välj grupp</option>
+										<option value="group1">Grupp1</option>
+										<option value="group2">Grupp2</option>
+										<option value="group3">Grupp3</option>
+										<option value="group4">Grupp4</option>
+										<option value="group4">Grupp5</option>
+										<option value="group4">Grupp6</option>
+										<option value="group4">Grupp7</option>
+										<option value="group4">Grupp8</option>
+										<option value="group4">Grupp9</option>
+									</select> <input type="button" id="showTxt" value="selected Group" /> <input
+										name="display" id="display" class="form-control"
+										th:field="*{group}" />
+
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-12 ">
+								<div class="form-group">
+
+									<select
+										class="mdb-select md-form colorful-select dropdown-danger"
+										id="scripts1" name="scripts1" multiple>
+										<option value="" disabled selected>Styrelsen</option>
+										<option value="group1">Styrelsen</option>
+										<option value="group2">Nytta och trevnda</option>
+										<option value="group3">Medlemsvärd</option>
+										<option value="group4">Valberedning</option>
+										<option value="group4">Ekonomi</option>
+										<option value="group4">Resivion</option>
+									</select> <input type="button" id="showTxt1" value="selected Group" /> <input
+										name="display" id="display1" class="form-control"
+										th:field="*{styrelsen}" />
+
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<button class="btn btn-success " type="submit">Spara</button>
+						</div>
+						<h2>
+							<span class="text-success" th:utext="${successMessage}"></span>
+						</h2>
+						<h2>
+							<span class="text-error" th:utext="${errorMessage}"></span>
+						</h2>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="text-center">
+		<i class="fa fa-copyright"></i> Copyright: <span id=year>year</span>.
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous">
+		
+	</script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous">
+		
+	</script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+
+	<script type="text/javascript">
+	
+	(function() {
+	    
+	    
+	    var sel = document.getElementById('scripts');
+	    var el = document.getElementById('display');
+
+
+	    function getSelectedOption(sel) {
+	        var opt;
+	        for ( var i = 0, len = sel.options.length; i < len; i++ ) {
+	            opt = sel.options[i];
+	            if ( opt.selected === true ) {
+	                break;
+	            }
+	        }
+	        return opt;
+	    }
+	    
+	    document.getElementById('showTxt').onclick = function () {
+	        
+	        el.value = sel.options[sel.selectedIndex].text;
+	    }
+	    
+	}());
+	</script>
+
+	<script type="text/javascript">
+	
+	(function() {
+	    
+	    
+	    var sel = document.getElementById('scripts1');
+	    var el = document.getElementById('display1');
+
+
+	    function getSelectedOption(sel) {
+	        var opt;
+	        for ( var i = 0, len = sel.options.length; i < len; i++ ) {
+	            opt = sel.options[i];
+	            if ( opt.selected === true ) {
+	                break;
+	            }
+	        }
+	        return opt;
+	    }
+	    
+	    document.getElementById('showTxt1').onclick = function () {
+	        
+	        el.value = sel.options[sel.selectedIndex].text;
+	    }
+	    
+	}());
+	</script>
+	<script>
+		$('#year').text(new Date().getFullYear());
+	</script>
+</body>
+
+</html>

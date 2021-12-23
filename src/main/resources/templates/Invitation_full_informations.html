@@ -1,0 +1,217 @@
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/custom.css">
+<title>Reserve</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-light " style="background-color: #b2a6f32d;">
+		<div class="ml-auto">
+			<form th:action="@{/admin/home}" method="get"
+				class="form-inline mb-0 ">
+				<button type="submit" class="btn btn-success text-center">Tillbaka</button>
+			</form>
+		</div>
+	</nav>
+
+	<div class="container ">
+		<div class="col-xs-12 col-sm-10 offset-sm-1 p-sm-5 " align="center">
+			<div class="panel-body text-center text-black">
+				<p>information om inbjudan nedan</p>
+				<p th:text="${invitationId}"></p>
+
+				<strong>
+					<p style="display: inline">Sammanfattning:</p>
+					<p style="display: inline">Antal medlemmar accepterar:</p>
+					<p th:text="${accepted}" style="display: inline"></p>
+					<p style="display: inline">, Antal medlemmar avvisar:</p>
+					<p th:text="${rejected}" style="display: inline"></p>
+					<p style="display: inline">, Antal medlemmar Inget svar:</p>
+					<p th:text="${notReliedYet}" style="display: inline"></p>
+				</strong>
+
+				<table class="table table-striped text-black text-center">
+					<thead class="thead-dark">
+						<tr>
+							<th style="display: none;" scope="col">id</th>
+							<th scope="col">beskrivningar</th>
+							<th scope="col">kläder Typ</th>
+							<th scope="col">startdatum Tid</th>
+							<th scope="col">slutdatum Tid</th>
+							<th scope="col">plats</th>
+							<th scope="col">anteckningar</th>
+
+						</tr>
+					</thead>
+					<tbody>
+
+						<tr th:each="item : ${invitations}">
+							<td style="display: none;" th:text="${item.id}"></td>
+							<td th:text="${item.descriptions}"></td>
+							<td th:text="${item.clothesType}"></td>
+							<td th:text="${item.startingDateTime}"></td>
+							<td th:text="${item.endingDateTime}"></td>
+							<td th:text="${item.location}"></td>
+							<td th:text="${item.Notes}"></td>
+
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+
+			<div align="center">
+				<div height="20" style="font-size: 20px; line-height: 20px;">&nbsp;</div>
+				<strong>
+					<p>Lista över inbjudna medlemmar</p>
+				</strong>
+				<table class="table table-striped text-black">
+
+					<thead class="thead-dark">
+						<tr>
+
+							<th scope="col">namn</th>
+							<th scope="col">efternamn</th>
+							<th scope="col">e-post</th>
+
+
+						</tr>
+					</thead>
+					<tbody>
+
+						<tr th:each="item : ${MembersInvited}">
+
+							<td th:text="${item.firstName}"></td>
+							<td th:text="${item.lastName}"></td>
+							<td th:text="${item.email}"></td>
+
+
+						</tr>
+					</tbody>
+				</table>
+				<div height="20" style="font-size: 20px; line-height: 20px;">&nbsp;</div>
+
+				<strong>
+					<p>Lista över medlemmar accepterade</p>
+				</strong>
+				<table class="table table-striped text-black">
+
+					<thead class="thead-dark">
+						<tr>
+							
+							<th scope="col">namn</th>
+							<th scope="col">efternamn</th>
+							<th scope="col">e-post</th>
+
+
+						</tr>
+					</thead>
+					<tbody>
+
+						<tr th:each="item : ${MembersAccepted}">
+						
+							<td th:text="${item.firstName}"></td>
+							<td th:text="${item.lastName}"></td>
+							<td th:text="${item.email}"></td>
+
+						</tr>
+					</tbody>
+				</table>
+
+				<div height="20" style="font-size: 20px; line-height: 20px;">&nbsp;</div>
+
+				<strong>
+					<p>Lista över medlemmar avvisade</p>
+				</strong>
+
+				<table class="table table-striped text-black">
+
+					<thead class="thead-dark">
+						<tr>
+							
+							<th scope="col">namn</th>
+							<th scope="col">efternamn</th>
+							<th scope="col">e-post</th>
+
+						</tr>
+					</thead>
+					<tbody>
+
+						<tr th:each="item : ${MembersRejected}">
+							
+							<td th:text="${item.firstName}"></td>
+							<td th:text="${item.lastName}"></td>
+							<td th:text="${item.email}"></td>
+						
+
+						</tr>
+					</tbody>
+				</table>
+
+				<strong>
+					<p>Medlemmars svar</p>
+				</strong>
+
+				<table class="table table-striped text-black">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col">E-postmedlem</th>
+							<th scope="col">Accepterad</th>
+							<th scope="col">Notera</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="items : ${response}">
+						
+							<td th:text="${items.member_email}" ></td>
+							<td th:text="${items.Accepted}"></td>
+							<td th:text="${items.memberNotes}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div align="center">
+
+			<div class="text-black col-4">
+
+				<button onclick="Print()" class="btn btn-success ">Skriv ut denna sida</button>
+
+			</div>
+		</div>
+
+	</div>
+
+
+	<footer class="text-center ">
+		<i class="fa fa-copyright"></i> Copyright: <span id=year>year</span>.
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous">
+		
+	</script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script>
+function Print() {
+  window.print();
+}
+</script>
+
+	<script>
+		$('#year').text(new Date().getFullYear());
+	</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

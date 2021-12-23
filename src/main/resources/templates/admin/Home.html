@@ -1,0 +1,113 @@
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/custom.css}" />
+<title>Reserve</title>
+</head>
+
+<body class="reserve-body-bg">
+	<nav class="navbar navbar-light " style="background-color: #b2a6f32d;">
+		<div class="ml-auto">
+			<form th:action="@{/logout}" method="get" class="form-inline mb-0 ">
+				<button type="submit" class="btn btn-success text-center">Logga ut</button>
+			</form>
+		</div>
+	</nav>
+	<div class="container text-black">
+	<div height="80" style="font-size:80px; line-height: 80px;">&nbsp;</div>
+	<div class=mx-auto >
+		
+		<p align="center" th:text="${userName}"></p>
+		<p align="center" th:text="${adminMessage}"></p>
+		</div>
+		
+		<div class="row reserve-nav-bg reserve-con-mg p-3">
+		
+			<div class="col-xs-12 col-md-4 col-lg-4">
+				<div class="nav flex-column nav-pills" id="v-pills-tab"
+					role="tablist" aria-orientation="vertical">
+					<button class="btn btn-info btn-block my-2 "
+						id="v-pills-inv-section-tab" data-toggle="pill"
+						data-target="#v-pills-inv-section" role="tab"
+						aria-controls="v-pills-inv-section" aria-selected="true">Möten</button>
+					<button class="btn btn-info btn-block my-2"
+						id="v-pills-mem-section-tab" data-toggle="pill"
+						data-target="#v-pills-mem-section" role="tab"
+						aria-controls="v-pills-mem-section" aria-selected="false">Medlemmar</button>
+				</div>
+			</div>
+			
+			<div class="col-xs-12 col-md-8 col-lg-8">
+				<div class="tab-content" id="v-pills-tabContent">
+					<div class="tab-pane fade show" id="v-pills-inv-section">
+
+						<div class="list-group">
+							<form th:action="@{/admin/creat_invitation}" method="get">
+								<button type="submit"
+									class="list-group-item list-group-item-action list-group-item-primary">Skapa inbjudan</button>
+							</form>
+							<form th:action="@{/admin/find_invitation/update}" method="get">
+								<button type="submit"
+									class="list-group-item list-group-item-action list-group-item-secondary">Uppdatera inbjudan</button>
+							</form>
+							<form th:action="@{/admin/find_invitation/result}" method="get">
+								<button type="submit"
+									class="list-group-item list-group-item-action list-group-item-success">Visa alla inbjudningar</button>
+							</form>
+							<form th:action="@{/admin/find_invitation/resultToSend}"
+								method="get">
+								<button type="submit"
+									class="list-group-item list-group-item-action list-group-item-danger">Skicka inbjudan</button>
+							</form>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="v-pills-mem-section">
+						<div class="list-group">
+							<form th:action="@{/admin/upload}" method="get">
+								<button type="submit"
+									class="list-group-item list-group-item-action list-group-item-primary">Ladda upp lista</button>
+							</form>
+							<form th:action="@{/admin/creat_member}" method="get">
+								<button type="submit"
+									class="list-group-item list-group-item-action list-group-item-secondary">Skapa medlem</button>
+							</form>
+							<form th:action="@{/admin/update_member}" method="get">
+								<button type="submit"
+									class="list-group-item list-group-item-action list-group-item-success">Uppdatera medlem</button>
+							</form>
+							<form th:action="@{/admin/find_member}" method="get">
+								<button type="submit"
+									class="list-group-item list-group-item-action list-group-item-danger">Hitta medlem</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<footer class="fixed-bottom text-center text-black">
+		<i class="fa fa-copyright"></i> Copyright: <span id="year"></span> .
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous">
+    </script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous">
+    </script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script>
+        $('#year').text(new Date().getFullYear());
+    </script>
+</body>
+
+
+</html>

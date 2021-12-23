@@ -1,0 +1,16 @@
+.reserve-nav-bg {
+
+    background-color:rgba(66, 36, 105, 0.246);
+}
+.reserve-con-mg{
+    margin-top: 15%;
+    margin-bottom: 10%; 
+}
+
+.reserve-body-bg{
+    
+    background-image: url(../images/11.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+

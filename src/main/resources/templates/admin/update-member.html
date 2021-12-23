@@ -1,0 +1,213 @@
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/custom.css">
+<title>Reserve</title>
+</head>
+
+<body class="reserve-body-bg">
+	<nav class="navbar navbar-light " style="background-color: #b2a6f32d;">
+		<div class="ml-auto">
+			<form th:action="@{/admin/home}" method="get"
+				class="form-inline mb-0 ">
+				<button type="submit" class="btn btn-success text-center">Tillbaka</button>
+			</form>
+		</div>
+	</nav>
+
+	<div class="container ">
+		<div
+			class="col-xs-12 col-sm-10 offset-sm-1 p-sm-5 reserve-nav-bg reserve-con-mg ">
+			<div class="panel-body  ">
+				<h3>Uppdatera medlem</h3>
+
+				<form action="#" th:action="@{/Member/update/{id}(id=${member.id})}"
+					th:object="${member}" method="post">
+
+					<div class="form-group ">
+						<label for="title" class="col-form-label text-black">Titel
+						</label> <input type="text" th:field="*{title}" class="form-control"
+							id=" title " placeholder="title"> <span
+							class="text-danger"></span>
+
+					</div>
+
+					<div class="form-group ">
+						<label for="firstName" class="col-form-label text-black">Först
+namn</label> <input type="text" th:field="*{firstName}"
+							class="form-control" id=" firstName " placeholder="firstName">
+						<span th:if="${#fields.hasErrors('firstName')}"
+							th:errors="*{firstName}" class="text-danger"></span>
+
+					</div>
+					<div class="form-group ">
+						<label for="lastName" class="col-form-label text-black">efternamn
+							</label> <input type="text" th:field="*{lastName}"
+							class="form-control" id="lastName" placeholder="lastName">
+						<span th:if="${#fields.hasErrors('lastName')}"
+							th:errors="*{lastName}" class="text-danger"></span>
+
+					</div>
+					<div class="form-group ">
+						<label for="email" class="col-form-label text-black">E-post</label>
+						<input type="text" th:field="*{email}" class="form-control"
+							id="email" placeholder="email"> <span
+							th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+							class="text-danger"></span>
+
+					</div>
+
+					<div class="form-group ">
+						<label for="mobilePhone" class="col-form-label text-black">Mobilnummer</label> <input type="text" th:field="*{mobilePhone}"
+							class="form-control" id="mobilePhone" placeholder="mobilePhone">
+						<span th:if="${#fields.hasErrors('mobilePhone')}"
+							th:errors="*{mobilePhone}" class="text-danger"></span>
+
+					</div>
+
+					<div class="form-group ">
+						<label for="address" class="col-form-label text-black">Adress</label>
+						<input type="text" th:field="*{address}" class="form-control"
+							id="address" placeholder="address"> <span
+							th:if="${#fields.hasErrors('address')}" th:errors="*{address}"
+							class="text-danger"></span>
+
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-12 ">
+							<div class="form-group">
+
+								<select
+									class="mdb-select md-form colorful-select dropdown-danger"
+									id="scripts" name="scripts" multiple>
+									<option value="" disabled selected>Välj grupp</option>
+									<option value="group1">Grupp1</option>
+									<option value="group2">Grupp2</option>
+									<option value="group3">Grupp3</option>
+									<option value="group4">Grupp4</option>
+									<option value="group4">Grupp5</option>
+									<option value="group4">Grupp6</option>
+									<option value="group4">Grupp7</option>
+									<option value="group4">Grupp8</option>
+									<option value="group4">Grupp9</option>
+								</select> <input type="button" id="showTxt" value="selected Group" /> <input
+									name="display" id="display" class="form-control"
+									th:field="*{group}" />
+
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-12 ">
+							<div class="form-group">
+
+								<select
+									class="mdb-select md-form colorful-select dropdown-danger"
+									id="scripts1" name="scripts1" multiple>
+									<option value="" disabled selected>Styrelsen</option>
+									<option value="group1">Styrelsen</option>
+									<option value="group2">Nytta och trevnda</option>
+									<option value="group3">Medlemsvärd</option>
+									<option value="group4">Valberedning</option>
+									<option value="group4">Ekonomi</option>
+									<option value="group4">Resision</option>
+								</select> <input type="button" id="showTxt1" value="selected Group" /> <input
+									name="display" id="display1" class="form-control"
+									th:field="*{styrelsen}" />
+
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group  mt-4 mx-auto">
+						<input type="submit"
+							onclick="return confirm('Are you sure you want to update this item?');"
+							class="btn btn-primary" value="Update Member">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<footer class="fixed-bottom text-center ">
+		<i class="fa fa-copyright"></i> Copyright: <span id=year>year</span>.
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous">	
+	</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+		<script type="text/javascript">
+	
+	(function() {
+	    
+	    
+	    var sel = document.getElementById('scripts');
+	    var el = document.getElementById('display');
+
+
+	    function getSelectedOption(sel) {
+	        var opt;
+	        for ( var i = 0, len = sel.options.length; i < len; i++ ) {
+	            opt = sel.options[i];
+	            if ( opt.selected === true ) {
+	                break;
+	            }
+	        }
+	        return opt;
+	    }
+	    
+	    document.getElementById('showTxt').onclick = function () {
+	        
+	        el.value = sel.options[sel.selectedIndex].text;
+	    }
+	    
+	}());
+	</script>
+
+	<script type="text/javascript">
+	
+	(function() {
+	    
+	    
+	    var sel = document.getElementById('scripts1');
+	    var el = document.getElementById('display1');
+
+
+	    function getSelectedOption(sel) {
+	        var opt;
+	        for ( var i = 0, len = sel.options.length; i < len; i++ ) {
+	            opt = sel.options[i];
+	            if ( opt.selected === true ) {
+	                break;
+	            }
+	        }
+	        return opt;
+	    }
+	    
+	    document.getElementById('showTxt1').onclick = function () {
+	        
+	        el.value = sel.options[sel.selectedIndex].text;
+	    }
+	    
+	}());
+	</script>
+	<script>
+		$('#year').text(new Date().getFullYear());
+	</script>
+
+</body>
+
+</html>

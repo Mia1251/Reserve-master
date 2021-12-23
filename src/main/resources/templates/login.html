@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link
+	href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic'
+	rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/grid.css">
+<link rel="stylesheet" href="/css/animate.css">
+<link rel="stylesheet" href="/css/all.css">
+
+<title>Reserve</title>
+
+</head>
+<body>
+	<header>
+		<nav>
+			<div class="row">
+				<img src="resources/img/logo-white.png" alt="Reserve logo"
+					class="logo">
+				<ul class="nav mt-5">
+					<li><button class="btn btn-ghost js--scroll-to-start" 
+							href="#features">Om oss</button></li>
+					<li><button class="btn btn-ghost js--scroll-to-start "
+							href="#works">Hur det fungerar</button></li>
+					<li>
+						<form th:action="@{/feedback}" method="get">
+							<button class="btn btn-ghost "
+								href="/feedback.html">Kontakta oss</button>
+						</form>
+					</li>
+					<li>
+						<form th:action="@{/registration}" method="get">
+							<button class="btn btn-ghost "
+								href="/registration.html">Bli Medlem</button>
+						</form>
+					</li>
+					<li>
+						<form th:action="@{/sign}" method="get">
+							<button class="btn btn-ghost "
+								href="/sign.html">Logga in</button>
+						</form>
+					</li>
+					<li>
+						<form th:action="@{/forgot-password}" method="get">
+							<button class="btn btn-ghost "
+								href="forgot_password.html">Glömt lösenord</button>
+						</form>>
+					</li>
+
+				</ul>
+				<a class="mobile-nav-icon js--nav-icon"><i
+					class="ion-navicon-round"></i></a>
+			</div>
+		</nav>
+
+		<div class="hero-text-box" align="center">
+
+			<h1>
+				Adjö gamla sätt.<br>Hej superkraft nya funktioner.
+			</h1>
+
+		</div>
+	</header>
+
+	<section class="section-features js--section-features " align="center"
+		id="features">
+		<div class="row">
+			<h2>create fast &mdash; skicka snabbt</h2>
+			<p class="long-copy">Hej, vi reserverar din nya premium
+inbjudan leverans tjänst. Vi vet att du alltid är upptagen. Ingen tid för
+bryr sig om inbjudningar. Så låt oss ta hand om det, vi är verkligen
+bra på det, vi lovar!</p>
+			<img src="resources/img/f40e98cfb37a83f39e7acd5cefb27ff0.jpg">
+		</div>
+	</section>
+	<section class="section-steps" id="works">
+		<div class="row">
+			<h2>Hur det fungerar &mdash; Enkelt som 1, 2, 3</h2>
+		</div>
+		<div class="row">
+			<div class="col span-1-of-2 steps-box">
+				<img src="resources/img/easy1.jpg" class="app-screen js--wp-2">
+			</div>
+			<div class="col span-1-of-2 steps-box">
+				<div class="works-step clearfix">
+					<div>1</div>
+					<p>bara registrera dig idag och skapa eller ladda upp dina egna medlemmar.</p>
+				</div>
+				<div class="works-step clearfix">
+					<div>2</div>
+					<p>Skapa dina egna inbjudningar & välj dina medlemmar & enkelt
+inbjudan skicka!</p>
+				</div>
+				<div class="works-step clearfix">
+					<div>3</div>
+					<p>Njut med dina medlemmar information och detaljer!</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="row">
+			<p>
+				<i class="fa fa-copyright"></i> Copyright <span id="year">
+					<p>by Reseve.com . All rights reserved</p>
+				</span> .
+
+			</p>
+		</div>
+	</footer>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+	<script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="//cdn.jsdelivr.net/selectivizr/1.0.3b/selectivizr.min.js"></script>
+	<script src="vendors/js/jquery.waypoints.min.js"></script>
+	<script src="resources/js/script.js"></script>
+
+
+	<script>
+                $('#year').text(new Date().getFullYear());
+            </script>
+
+
+
+</body>
+
+</html>
