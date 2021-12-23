@@ -9,7 +9,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 
 
-@SpringBootApplication+
+@SpringBootApplication
 public class ReserveApplication {
 
 	public static void main(String[] args) {
